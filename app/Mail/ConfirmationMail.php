@@ -11,14 +11,19 @@ class ConfirmationMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $details;
+    public $dias;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($details, $dias)
     {
         //
+        $this->details = $details;
+        $this->dias = $dias;
     }
 
     /**
@@ -28,6 +33,7 @@ class ConfirmationMail extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.confirmationMail');
+        return $this->subject('Reserva de Culto Iglesia Cristiana Josue')
+            ->view('mail.confirmationMail');
     }
 }

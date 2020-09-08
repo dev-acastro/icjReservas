@@ -56,27 +56,33 @@ class ReservasController extends Controller
 //
 
         $i = 0;
+        $emails = [];
 
         for($i=0; $i<= ($request->get('seats'))-1; $i++){
-
-
-
             $asientos = $i == 0 ? $request->get('seats') : 1;
-
             $reserva = new Reservas([
                 'name' => $request->get('name'.$i),
                 'email' => $request->get('email'.$i),
                 'seats' => $asientos,
                 'date' => $request->get('date'),
             ]);
-
             $reserva->save();
 
-
+            $emails[$i] = [
+                'name' => $request->get('name'.$i),
+                'email' => $request->get('email'.$i),
+            ];
         }
-        $email = $request->get('mail0');
+        $details = [
+            "Name" => $request->get('name0'),
+            "Seats" => $request->get('seats'),
+            "Date" => $request->get('date'),
+        ];
 
-        Mail::to("armicasdi@gmail.com")->send(new confirmationMail());
+        $email = $request->get('mail0');
+        $dias = array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+        \Mail::to($emails)->send(new \App\Mail\ConfirmationMail($details, $dias));
+        return $emails;
 
     }
 

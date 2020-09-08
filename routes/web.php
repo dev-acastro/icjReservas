@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::resource('reservas','ReservasController');
+Route::post('/search',  'SearchController@index')->name('search');
 
 
 Route::prefix('admin')->group(function () {
@@ -26,4 +27,26 @@ Route::prefix('admin')->group(function () {
 
 Auth::routes();
 
+Route::get('/ConfirmationMail', function (){
+    $details = [
+        'Name' => 'Arturo Castro',
+        'Seats' => '4',
+        'Date' => '2020-08-16 00:00:00'
+    ];
+
+    $dias = array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+    return view ('mail.confirmationMail', ['details' => $details, 'dias' => $dias]);
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Route::get('send-mail', function (){
+//   $details = [
+//       'title'=> 'Mail from ',
+//       'body' => 'Body'
+//   ];
+//
+//   \Mail::to('armicasdi@gmail.com')->send(new \App\Mail\ConfirmationMail($details));
+//});
+
+

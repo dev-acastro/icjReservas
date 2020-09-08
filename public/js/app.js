@@ -9200,7 +9200,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 			}
 			if ( ( find = Expr.find[ type ] ) ) {
 
-				// Search, expanding context for leading sibling combinators
+				// SearchController, expanding context for leading sibling combinators
 				if ( ( seed = find(
 					token.matches[ 0 ].replace( runescape, funescape ),
 					rsibling.test( tokens[ 0 ].type ) && testContext( context.parentNode ) ||
@@ -24677,7 +24677,7 @@ return jQuery;
      * _.indexOf([1, 2, 1, 2], 2);
      * // => 1
      *
-     * // Search from the `fromIndex`.
+     * // SearchController from the `fromIndex`.
      * _.indexOf([1, 2, 1, 2], 2, 2);
      * // => 3
      */
@@ -24862,7 +24862,7 @@ return jQuery;
      * _.lastIndexOf([1, 2, 1, 2], 2);
      * // => 3
      *
-     * // Search from the `fromIndex`.
+     * // SearchController from the `fromIndex`.
      * _.lastIndexOf([1, 2, 1, 2], 2, 2);
      * // => 1
      */
