@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(\route('reservas.create'));
 });
 
 Route::resource('reservas','ReservasController');
@@ -23,6 +23,8 @@ Route::post('/search',  'SearchController@index')->name('search');
 
 Route::prefix('admin')->group(function () {
     Route::resource('times','admin\TimesController');
+    Route::get('/', 'adminController@index');
+    Route::get('/reservaciones/{date}', 'adminController@show')->name('reservaciones');
 });
 
 Auth::routes();

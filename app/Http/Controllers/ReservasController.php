@@ -14,11 +14,12 @@ class ReservasController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function index()
     {
         //
+        return redirect(\route('reservas.create'));
 
 
 

@@ -22,12 +22,12 @@ $(document).ready(function() {
                     <input id="name${i}" type="text" class="form-control"  name="name${i}"  required>
                 </div>
             </div>
-            <div class="form-group row" >
+            <!--<div class="form-group row" >
                 <label for="email${i}" class="col-md-4 col-form-label text-md-right">Correo Electronico</label>
                 <div class="col-md-6">
                     <input id="email${i}" type="email" class="form-control"  name="email${i}"  required>
                 </div>
-            </div>
+            </div>-->
             </div>
 
             `
