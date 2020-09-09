@@ -20,7 +20,7 @@
                         {{$reserva->name}}
                     @endforeach
 
-                    {{$reservas->links()}}
+
 
 
                 </div>

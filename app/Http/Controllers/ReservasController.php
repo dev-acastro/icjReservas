@@ -42,7 +42,7 @@ class ReservasController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function store(Request $request)
     {
@@ -80,10 +80,13 @@ class ReservasController extends Controller
             "Date" => $request->get('date'),
         ];
 
+
+
+
         $email = $request->get('mail0');
         $dias = array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
         \Mail::to($emails)->send(new \App\Mail\ConfirmationMail($details, $dias));
-        return $emails;
+        return view('ThankYouPage', ['details' => $details, 'dias' => $dias]);
 
     }
 
