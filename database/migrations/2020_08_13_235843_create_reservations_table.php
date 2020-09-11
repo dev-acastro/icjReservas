@@ -17,10 +17,9 @@ class CreateReservationsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->integer('seats');
             $table->string('date');
-            $table->string('time');
         });
     }
 
