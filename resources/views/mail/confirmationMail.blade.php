@@ -13,11 +13,11 @@
 <div  style="text-align: center;
                                     display: flex;
                                     justify-content: center;
-                                    padding: 50px;" >
+                                    padding: 10px;" >
 
     <div style="background-color: white;
                                             margin: 20px auto;
-                                            padding: 30px 0px;
+                                            padding: 30px 30px;
                                             border-bottom: #1b4b72 1px solid;">
 
         <div style="background-color: #1b4b72; padding: 30px; margin-bottom: 50px">
