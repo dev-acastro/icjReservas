@@ -95,7 +95,7 @@ class ReservasController extends Controller
 
 
         $dias = array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
-        \Mail::to($emails)->send(new \App\Mail\ConfirmationMail($details, $dias));
+//        \Mail::to($emails)->send(new \App\Mail\ConfirmationMail($details, $dias));
         return view('ThankYouPage', ['details' => $details, 'dias' => $dias]);
 
     }
