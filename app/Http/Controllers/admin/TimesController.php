@@ -24,7 +24,8 @@ class TimesController extends Controller
     public function index()
     {
         $times = Times::paginate(15);
-        return view('times/index', ['times' => $times]);
+        $dias = array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+        return view('times/index', ['times' => $times, 'dias'=>$dias]);
     }
 
     /**
@@ -42,7 +43,7 @@ class TimesController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
@@ -60,7 +61,8 @@ class TimesController extends Controller
 
         $servicios->save();
 
-        return redirect('times.index');
+
+        return redirect(route('times.index'));
     }
 
     /**

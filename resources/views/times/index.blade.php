@@ -39,12 +39,12 @@
                             @foreach($times as $time)
                                 <tr>
 
-                                    <td>{{$time->day}}</td>
-                                    <td>{{$time->time}}</td>
+                                    <td>{{$dias[date('w', strtotime($time->date))]}} {{date('d', strtotime($time->date))}}</td>
+                                    <td>{{date('h:i', strtotime($time->date))}} {{date('A', strtotime($time->date))}}</td>
                                     <td>{{$time->seats}}</td>
                                     <td><a class="btn btn-primary" href="{{route('times.edit', ["time" => $time->id])}}">Editar</a></td>
                                     <td>
-                                        <form action="{{ route('times.edit', $time->id)}}" method="post">
+                                        <form action="{{ route('times.destroy', $time->id)}}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger" type="submit">Eliminar</button>
