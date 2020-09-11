@@ -46,37 +46,38 @@ class ReservasController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $validatedData = $request->validate([
            'name0' => 'required',
            'email0' => 'required|email'
         ]);
 
-
-//
-
-        $i = 0;
+        //$i = 0;
         $emails = [];
         $date = Times::find($request->get('date'));
 
 
 
-        for($i=0; $i<= ($request->get('seats'))-1; $i++){
-            $asientos = $i == 0 ? $request->get('seats') : 1;
-            $reserva = new Reservas([
-                'name' => $request->get('name'.$i),
-                'email' => $request->get('email'.$i),
-                'seats' => $asientos,
-                'date' => $date->date,
-            ]);
-            $reserva->save();
 
-            $emails[$i] = [
-                'name' => $request->get('name'.$i),
-                'email' => $request->get('email'.$i),
-            ];
-        }
+            for($i=0; $i<= ($request->get('seats'))-1; $i++){
+                $asientos = $i == 0 ? $request->get('seats') : 1;
+                    $reserva = new Reservas([
+                        'name' => $request->get('name'.$i),
+                        'email' => $request->get('email'.$i),
+                        'seats' => $asientos,
+                        'date' => $date->date,
+                    ]);
+
+                $reserva->save();
+                $emails[$i] = [
+                    'name' => $request->get('name'.$i),
+                    'email' => $request->get('email'.$i),
+                ];
+            }
+
+
+
+
+
 
         $seats = $request->get('seats');
 
@@ -95,7 +96,7 @@ class ReservasController extends Controller
 
 
         $dias = array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
-//        \Mail::to($emails)->send(new \App\Mail\ConfirmationMail($details, $dias));
+        \Mail::to($emails)->send(new \App\Mail\ConfirmationMail($details, $dias));
         return view('ThankYouPage', ['details' => $details, 'dias' => $dias]);
 
     }
