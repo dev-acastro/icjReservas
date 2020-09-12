@@ -78,7 +78,7 @@ class ReservasController extends Controller
                     $details['compa'][$i] = $request->get('name'.$i);
                 }
 
-            return $details;
+
 
             $reserva = new Reservas([
                 'name' => $request->get('name0'),
