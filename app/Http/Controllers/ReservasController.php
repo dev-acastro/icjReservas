@@ -83,7 +83,7 @@ class ReservasController extends Controller
                 'email' => $request->get('email0'),
                 'seats' => "1",
                 'date' => $date->date,
-                'companions' => json_encode(array_values($companions))
+                'companions' => json_encode($companions)
             ]);
             $reserva->save();
 
