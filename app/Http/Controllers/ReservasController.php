@@ -55,41 +55,46 @@ class ReservasController extends Controller
         $emails = [];
         $date = Times::find($request->get('date'));
 
+        $details = [
+            "Name" => $request->get('name0'),
+            "Seats" => $request->get('seats'),
+            "Date" => $request->get('date'),
+            "compa" => []
+        ];
 
 
+            $companions=[];
 
-            for($i=0; $i<= ($request->get('seats'))-1; $i++){
-                $asientos = $i == 0 ? $request->get('seats') : 1;
+            for($i=1; $i<= ($request->get('seats'))-1; $i++){
                     $reserva = new Reservas([
                         'name' => $request->get('name'.$i),
-                        'email' => $request->get('email'.$i),
-                        'seats' => $asientos,
+                        'seats' => "1",
                         'date' => $date->date,
                     ]);
+                    $reserva->save();
+                    $companions[$i] = $request->get('name'.$i);
+                    $details['compa'][$i] = $request->get('name'.$i);
+                }
 
-                $reserva->save();
-                $details['compa'][$i] = $request->get('name'.$i);
-
-            }
 
 
+            $reserva = new Reservas([
+                'name' => $request->get('name0'),
+                'email' => $request->get('email0'),
+                'seats' => "1",
+                'date' => $date->date,
+                'companions' => json_encode(array_values($companions))
+            ]);
+            $reserva->save();
 
         $emails[1] = [
             'name' => $request->get('name0'),
             'email' => $request->get('email0'),
         ];
 
-        $details = [
-            "Name" => $request->get('name0'),
-            "Seats" => $request->get('seats'),
-            "Date" => $request->get('date'),
-        ];
-
         $seats = $request->get('seats');
-
         $date->seats = $date->seats - $seats;
         $date->save();
-
 
         $dias = array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
         \Mail::to($emails)->send(new \App\Mail\ConfirmationMail($details, $dias));

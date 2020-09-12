@@ -10,6 +10,6 @@ class Reservas extends Model
     protected $table = 'reservations';
 
     protected $fillable = [
-        'name', 'email', 'seats', 'date'
+        'name', 'email', 'seats', 'date', 'companions'
     ];
 }

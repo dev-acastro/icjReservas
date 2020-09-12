@@ -32,12 +32,16 @@
                 </tr>
                 <tr>
                     <th>Fecha:</th>
-                    <td>{{$dias[date('w', strtotime($details['Date']))]}} {{date('d', strtotime($details['Date']))}} a las  {{date('h-i', strtotime($details['Date']))}} {{date('A', strtotime($details['Date']))}}</td>
+                    <td>{{$dias[date('w', strtotime($details['Date']))]}} {{date('d', strtotime($details['Date']))}} a las  {{date('h:i', strtotime($details['Date']))}} {{date('A', strtotime($details['Date']))}}</td>
                 </tr>
                 <tr>
                     <th>Asientos:</th>
                     <td>{{$details['Seats']}} Reservados</td>
                 </tr>
+            <tr>
+                <th>Acompañantes:</th>
+                <td><ul>@foreach($details['compa'] as $compa) <li>{{ $compa  }}</li> @endforeach</ul></td>
+            </tr>
 
         </table>
         </div>

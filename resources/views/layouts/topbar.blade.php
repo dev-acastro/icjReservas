@@ -50,7 +50,7 @@
                         <!-- Busqueda -->
 
 
-                            <form id="search" action="{{ route('search') }}" method="POST"  >
+                            {{--<form id="search" action="{{ route('search') }}" method="POST"  >
                                 @csrf
                                 <div class="input-group">
                                     <input type="email" name="email" class="form-control" placeholder="Buscar Reserva" aria-label="" aria-describedby="basic-addon1">
@@ -58,7 +58,7 @@
                                         <button class="btn btn-primary" type="submit">Buscar</button>
                                     </div>
                                 </div>
-                            </form>
+                            </form>--}}
 
                     </ul>
                 </div>
