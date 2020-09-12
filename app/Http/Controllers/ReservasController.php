@@ -65,6 +65,8 @@ class ReservasController extends Controller
 
             $companions=[];
 
+            return $details;
+
             for($i=1; $i<= ($request->get('seats'))-1; $i++){
                     $reserva = new Reservas([
                         'name' => $request->get('name'.$i),
