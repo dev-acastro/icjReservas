@@ -87,7 +87,7 @@
                            <input type="checkbox" name="medidasConf" id="medidasConf" >
 
                             </div>
-                            <label  class="col-form-label text-md-left col-md-6">Confirmo no presentar ninguno de los sintomas comunes de COVID19</label>
+                            <label  class="col-form-label text-md-left col-md-6">Acepto el protocolo General de Bioseguridad de Iglesia Cristiana Josue y asisto bajo mi propia responsabilidad </label>
                         </div>
 
                         <div class="form-group row">
@@ -95,7 +95,7 @@
                                 <input type="checkbox" name="medidasHigiene" id="medidasHigiene">
 
                             </div>
-                            <label  class="col-form-label text-md-left col-md-6">Me comprometo a seguir todas las normas de higuiene para ingresar a Iglesia Josue asi como portar en todo momento mi mascarilla </label>
+                            <label  class="col-form-label text-md-left col-md-6">Me comprometo a seguir todas las normas de higiene para ingresar a Iglesia Josue asi como portar en todo momento mi mascarilla </label>
                         </div>
 
                         <div class="form-group row mb-0">
