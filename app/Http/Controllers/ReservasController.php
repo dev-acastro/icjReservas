@@ -68,21 +68,16 @@ class ReservasController extends Controller
                     ]);
 
                 $reserva->save();
-                $emails[$i] = [
-                    'name' => $request->get('name'.$i),
-                    'email' => $request->get('email'.$i),
-                ];
+                $details['compa'][$i] = $request->get('name'.$i);
+
             }
 
 
 
-
-
-
-        $seats = $request->get('seats');
-
-        $date->seats = $date->seats - $seats;
-        $date->save();
+        $emails[1] = [
+            'name' => $request->get('name0'),
+            'email' => $request->get('email0'),
+        ];
 
         $details = [
             "Name" => $request->get('name0'),
@@ -90,9 +85,10 @@ class ReservasController extends Controller
             "Date" => $request->get('date'),
         ];
 
+        $seats = $request->get('seats');
 
-
-
+        $date->seats = $date->seats - $seats;
+        $date->save();
 
 
         $dias = array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
