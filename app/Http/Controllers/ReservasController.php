@@ -65,7 +65,7 @@ class ReservasController extends Controller
 
             $companions=[];
 
-            return $details;
+
 
             for($i=1; $i<= ($request->get('seats'))-1; $i++){
                     $reserva = new Reservas([
@@ -78,7 +78,7 @@ class ReservasController extends Controller
                     $details['compa'][$i] = $request->get('name'.$i);
                 }
 
-
+            return $details;
 
             $reserva = new Reservas([
                 'name' => $request->get('name0'),
