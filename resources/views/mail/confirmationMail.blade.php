@@ -53,10 +53,10 @@
             @endif
 
 
-c
+
 
         </table>
-        <p>No Olvides los siguientes lineamientos</p>
+        <h2>No Olvides los siguientes lineamientos</h2>
         <img src="https://i.ibb.co/3MwBxbL/Whats-App-Image-2020-09-09-at-9-12-13-AM.jpg" alt="Protocolo" border="0">
 
     </div>

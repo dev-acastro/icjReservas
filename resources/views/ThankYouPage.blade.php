@@ -35,8 +35,8 @@
                     <td>{{$dias[date('w', strtotime($details['Date']))]}} {{date('d', strtotime($details['Date']))}} a las  {{date('h:i', strtotime($details['Date']))}} {{date('A', strtotime($details['Date']))}}</td>
                 </tr>
                 <tr>
-                    <th>Asientos:</th>
-                    <td>{{$details['Seats']}} Reservados</td>
+                    <th>Asientos Reservados:</th>
+                    <td>{{$details['Seats']}} </td>
                 </tr>
             @if (!empty($details['compa']))
                 <tr>
