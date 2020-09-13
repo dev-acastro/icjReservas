@@ -38,10 +38,13 @@
                     <th>Asientos:</th>
                     <td>{{$details['Seats']}} Reservados</td>
                 </tr>
-            <tr>
-                <th>Acompañantes:</th>
-                <td><ul>@foreach($details['compa'] as $compa) <li>{{ $compa  }}</li> @endforeach</ul></td>
-            </tr>
+            @if (!empty($details['compa']))
+                <tr>
+                    <th>Acompañantes:</th>
+                    <td><ul>@foreach($details['compa'] as $compa) <li>{{ $compa  }}</li> @endforeach</ul></td>
+                </tr>
+            @endif
+
 
         </table>
         </div>

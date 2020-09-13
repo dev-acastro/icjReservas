@@ -55,10 +55,12 @@ class ReservasController extends Controller
         $emails = [];
         $date = Times::find($request->get('date'));
 
+
+
         $details = [
             "Name" => $request->get('name0'),
             "Seats" => $request->get('seats'),
-            "Date" => $request->get('date'),
+            "Date" => $date->date,
             "compa" => []
         ];
 
@@ -94,13 +96,15 @@ class ReservasController extends Controller
             'email' => $request->get('email0'),
         ];
 
+
+
         $seats = $request->get('seats');
         $date->seats = $date->seats - $seats;
         $date->save();
 
         $dias = array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
         \Mail::to($emails)->send(new \App\Mail\ConfirmationMail($details, $dias));
-        return view('ThankYouPage', ['details' => $details, 'dias' => $dias]);
+        return view('ThankYouPage', ['details' => $details, 'dias' => $dias, 'companions' => $companions]);
 
     }
 
