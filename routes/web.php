@@ -23,7 +23,7 @@ Route::post('/search',  'SearchController@index')->name('search');
 
 Route::prefix('admin')->group(function () {
     Route::resource('times','admin\TimesController');
-    Route::get('/', 'adminController@index')->name('inicioAdmin');
+    Route::get('/', 'admin\adminController@index')->name('inicioAdmin');
     Route::get('/reservaciones/{date}', 'adminController@show')->name('reservaciones');
 });
 
