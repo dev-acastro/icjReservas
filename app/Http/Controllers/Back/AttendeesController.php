@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Back;
 
+use App\Http\Controllers\Controller;
 use App\Reservas;
 use App\Times;
 use Illuminate\Http\Request;
 
-class adminController extends Controller
+
+class AttendeesController extends Controller
 {
     public function __construct()
     {
@@ -19,7 +21,8 @@ class adminController extends Controller
      */
     public function index()
     {
-        //
+
+
         $times = Times::all();
         $dias = array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
         return view('admin.index', ['times'=>$times, 'dias'=>$dias]);
@@ -50,15 +53,31 @@ class adminController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
-    public function show($date)
+    public function show($request)
     {
         //
-        $time = Reservas::where('date', $date)->get();
-        return view('admin.show', ['time' =>$time]);
+        $date = explode('%', $request);
+
+        $time = $date[0];
+
+        $reservas = Reservas::where('date', $time)->paginate(10);
+        $dias = array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+
+        //return $reservas;
+        return view('admin.show', ['reservas'=>$reservas, 'dias'=>$dias]);
+
 
     }
+
+    public function ajax()
+    {
+
+    }
+
+
+
 
     /**
      * Show the form for editing the specified resource.

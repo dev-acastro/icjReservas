@@ -22,10 +22,13 @@ Route::post('/search',  'SearchController@index')->name('search');
 
 
 Route::prefix('admin')->group(function () {
-    Route::resource('times','admin\TimesController');
-    Route::get('/', 'admin\adminController@index')->name('inicioAdmin');
-    Route::get('/reservaciones/{date}', 'adminController@show')->name('reservaciones');
+    Route::resource('times','Back\TimesController');
+    //Route::resource('/', function(){ return redirect('/attendees');});
+    Route::Resource('attendees', 'Back\AttendeesController');
+    Route::post('/attendeesAjax/', 'Back\AttendeesController@ajax')->name('attendees.ajax');
+
 });
+
 
 Auth::routes();
 
@@ -40,7 +43,7 @@ Route::get('/ConfirmationMail', function (){
     return view ('mail.confirmationMail', ['details' => $details, 'dias' => $dias]);
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+
 
 //Route::get('send-mail', function (){
 //   $details = [

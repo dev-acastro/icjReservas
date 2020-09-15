@@ -5,58 +5,45 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Cultos Disponibles </div>
+                @if(isset($reservas[0]))
+                    <div class="card-header" style="text-align: center">Reservas Realizadas para {{$dias[date('w', strtotime($reservas[0]->date))]}} {{date('d', strtotime($reservas[0]->date))}} {{date('h:i', strtotime($reservas[0]->date))}}{{date('A', strtotime($reservas[0]->date))}} <div style="margin-bottom: 10px; text-align: center; float: right; font-size: 10px"><a href="{{route('attendees.index')}}"class="btn btn-primary">Regresar</a><a href="#" style="float: right" class="btn btn-success">Print</a></div></div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                </div>
 
-                <div class="col-sm-12">
-                    @if(session()->get('success'))
-                        <div class="alert alert-success">
-                            {{ session()->get('success') }}
-                        </div>
-                    @endif
-                </div>
 
                 <div class="container">
-
-
 
                         <table class="table table-striped" >
                             <thead class="thead-light">
                             <tr>
-                                <th>Dia</th>
-                                <th>Hora</th>
-                                <th>Asientos </th>
+                                <th>Nombre</th>
+                                <th>Culto Reservado</th>
+                                <th>Espacios</th>
+                                <th>Correo Electronico</th>
                             </tr>
                             </thead>
-                            @foreach($times as $time)
+                            @foreach($reservas as $reserva)
                                 <tr>
-
-
-                                    <td><a href="{{route('reservaciones', ['date'=>$time->id])}}">{{$dias[date('w', strtotime($time->date))]}} {{date('d', strtotime($time->date))}}  </a></td>
-                                    <td>{{date('h:i', strtotime($time->date))}} {{date('A', strtotime($time->date))}}</td>
-                                    <td>{{$time->seats}}</td>
-
+                                <td>{{$reserva->name}}</td>
+                                <td>{{$dias[date('w', strtotime($reserva->date))]}} {{date('d', strtotime($reserva->date))}} {{date('h:i', strtotime($reserva->date))}}{{date('A', strtotime($reserva->date))}} </td>
+                                <td>{{$reserva->seats}}</td>
+                                <td>{{$reserva->email}}</td>
                                 </tr>
                             @endforeach
                         </table>
-
-
+                    {{ $reservas->links() }}
+                    @else
+                        <div class="card-header" style="text-align: center">No se encuentra ninguna reserva para este horario</div>
+                        <div style="text-align: center"><a href="{{route('attendees.index')}}"class="btn btn-primary">Regresar</a></div>
+                     @endif
                 </div>
-
-
-
-
-
-
             </div>
         </div>
     </div>
 </div>
+
+
+<script type="text/javascript">
+
+
+</script>
 @endsection

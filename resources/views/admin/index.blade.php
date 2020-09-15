@@ -32,15 +32,13 @@
                             <tr>
                                 <th>Dia</th>
                                 <th>Hora</th>
-                                <th>Asientos </th>
+                                <th>Asientos Disponibles </th>
                             </tr>
                             </thead>
                             @foreach($times as $time)
                                 <tr>
-
-
-                                    <td><a href="{{route('reservaciones', ['date'=>$time->date])}}">{{$dias[date('w', strtotime($time->date))]}} {{date('d', strtotime($time->date))}}  </a></td>
-                                    <td>{{date('h:i', strtotime($time->date))}} {{date('A', strtotime($time->date))}}</td>
+                                    <td><a href="{{route('attendees.show', $time->date)}}">{{$dias[date('w', strtotime($time->date))]}} {{date('d', strtotime($time->date))}}  </a></td>
+                                    <td>{{date('h:i', strtotime($time->date))}}{{date('A', strtotime($time->date))}}</td>
                                     <td>{{$time->seats}}</td>
 
                                 </tr>

@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Back;
+
 
 use App\Http\Controllers\Controller;
 use App\Times;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\Redirect;
 
 class TimesController extends Controller
 {
+
 
     public function __construct()
     {
