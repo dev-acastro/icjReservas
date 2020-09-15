@@ -33,6 +33,7 @@
                                 <th>Dia</th>
                                 <th>Hora</th>
                                 <th>Asientos Disponibles </th>
+                                <th>Acciones</th>
                             </tr>
                             </thead>
                             @foreach($times as $time)
@@ -40,6 +41,7 @@
                                     <td><a href="{{route('attendees.show', $time->date)}}">{{$dias[date('w', strtotime($time->date))]}} {{date('d', strtotime($time->date))}}  </a></td>
                                     <td>{{date('h:i', strtotime($time->date))}}{{date('A', strtotime($time->date))}}</td>
                                     <td>{{$time->seats}}</td>
+                                    <td><a href="#"  class="btn btn-success">Print</a></td>
 
                                 </tr>
                             @endforeach
