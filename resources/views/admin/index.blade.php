@@ -45,7 +45,7 @@
                                     <td>{{$time->seats}}</td>
                                     <td>{{$time->availableseats}}</td>
                                     <td>{{$time->seats - $time->availableseats  }}</td>
-                                    <td><a href="#"  class="btn btn-success">Print</a></td>
+                                    <td><a href="{{route('print', ['date'=>$time->date])}}" ><i class="fas fa-print">  </i></a><a href="{{route('see', ['date'=>$time->date])}}"  ><i class="fas fa-eye"></i></a></td>
 
                                 </tr>
                             @endforeach

@@ -26,6 +26,8 @@ Route::prefix('admin')->group(function () {
     //Route::resource('/', function(){ return redirect('/attendees');});
     Route::Resource('attendees', 'Back\AttendeesController');
     Route::post('/attendeesAjax/', 'Back\AttendeesController@ajax')->name('attendees.ajax');
+    Route::get('/print/{date}', 'Back\AttendeesController@print')->name('print');
+    Route::get('/see/{date}', 'Back\AttendeesController@see')->name('see');
 
 });
 

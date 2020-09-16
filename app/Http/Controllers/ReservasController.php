@@ -54,6 +54,8 @@ class ReservasController extends Controller
         //$i = 0;
         $emails = [];
         $date = Times::find($request->get('date'));
+        $seats = $request->get('seats');
+        $companions=[];
 
 
 
@@ -65,7 +67,7 @@ class ReservasController extends Controller
         ];
 
 
-            $companions=[];
+
 
 
 
@@ -85,7 +87,7 @@ class ReservasController extends Controller
             $reserva = new Reservas([
                 'name' => $request->get('name0'),
                 'email' => $request->get('email0'),
-                'seats' => "1",
+                'seats' => $seats,
                 'date' => $date->date,
                 'companions' => json_encode($companions)
             ]);
@@ -98,7 +100,7 @@ class ReservasController extends Controller
 
 
 
-        $seats = $request->get('seats');
+
         $date->availableseats = $date->availableseats - $seats;
         $date->save();
 
