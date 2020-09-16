@@ -18,6 +18,7 @@ class CreateTimesTable extends Migration
             $table->timestamps();
             $table->date('date');
             $table->integer('seats');
+            $table->integer('availbleseats');
         });
     }
 

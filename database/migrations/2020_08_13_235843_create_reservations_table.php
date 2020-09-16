@@ -20,6 +20,7 @@ class CreateReservationsTable extends Migration
             $table->string('email');
             $table->integer('seats');
             $table->string('date');
+            $table->json('companions');
         });
     }
 

@@ -99,7 +99,7 @@ class ReservasController extends Controller
 
 
         $seats = $request->get('seats');
-        $date->seats = $date->seats - $seats;
+        $date->availableseats = $date->availableseats - $seats;
         $date->save();
 
         $dias = array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");

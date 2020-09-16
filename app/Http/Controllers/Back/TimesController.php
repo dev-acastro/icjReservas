@@ -59,6 +59,7 @@ class TimesController extends Controller
         $servicios = new Times([
             'date' => $request->get('date'),
             'seats' => $request->get('seats'),
+            'availableseats' => $request->get('seats')
         ]);
 
         $servicios->save();

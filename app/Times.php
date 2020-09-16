@@ -10,7 +10,7 @@ class Times extends Model
     protected $table = 'times';
 
     protected $fillable = [
-        'date', 'time', 'seats'
+        'date', 'time', 'seats', 'availableseats'
     ];
 
 

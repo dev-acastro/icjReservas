@@ -32,7 +32,9 @@
                             <tr>
                                 <th>Dia</th>
                                 <th>Hora</th>
-                                <th>Asientos Disponibles </th>
+                                <th>Asientos</th>
+                                <th>Asientos Disponibles</th>
+                                <th>Reservas Realizadas </th>
                                 <th>Acciones</th>
                             </tr>
                             </thead>
@@ -41,6 +43,8 @@
                                     <td><a href="{{route('attendees.show', $time->date)}}">{{$dias[date('w', strtotime($time->date))]}} {{date('d', strtotime($time->date))}}  </a></td>
                                     <td>{{date('h:i', strtotime($time->date))}}{{date('A', strtotime($time->date))}}</td>
                                     <td>{{$time->seats}}</td>
+                                    <td>{{$time->availableseats}}</td>
+                                    <td>{{$time->seats - $time->availableseats  }}</td>
                                     <td><a href="#"  class="btn btn-success">Print</a></td>
 
                                 </tr>
