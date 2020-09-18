@@ -19,7 +19,7 @@ $(document).ready(function() {
             <div class="form-group row"  >
                 <label for="name${i}" class="col-md-4 col-form-label text-md-right">Acompañante ${i}</label>
                 <div class="col-md-6">
-                    <input id="name${i}" type="text" class="form-control"  name="name${i}"  required>
+                    <input id="name${i}" type="text" class="form-control"  name="name${i}"  required pattern="[^0-9]" >
                 </div>
             </div>
             <!--<div class="form-group row" >

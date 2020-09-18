@@ -73,8 +73,26 @@ class AttendeesController extends Controller
 
     }
 
-    public function ajax()
+    public function print($date)
     {
+        $reservas = Reservas::where('date', $date)->paginate(10);
+        $dias = array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+
+        $pdf = PDF::loadView('print.attendees', ['reservas'=>$reservas, 'dias' =>$dias]);
+        return $pdf->download('attendees'. ' '.  $dias[date('w', strtotime($date))]. ' '.  date('d', strtotime($date)) . ' '.   date('h:i', strtotime($date)) . ' '.  date('A', strtotime($date))  . '.pdf');
+
+    }
+
+
+    public function see($date)
+    {
+
+        $reservas = Reservas::where('date', $date)->paginate(10);
+        $dias = array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
+
+        $pdf = PDF::loadView('print.attendees', ['reservas'=>$reservas, 'dias' =>$dias]);
+        return $pdf->stream();
+
 
     }
 
