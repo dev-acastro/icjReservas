@@ -39,7 +39,7 @@
                             </tr>
                             </thead>
                             @foreach($times as $time)
-                                <tr style="border-left:  4px solid {{$time->availableseats < 4 ? 'red' : 'blue' }}; border-right: 4px solid {{$time->availableseats < 4 ? 'red' : 'blue' }};  " >
+                                <tr style="border-left:  4px solid {{$time->availableseats <= 4 ? 'red' : 'blue' }}; border-right: 4px solid {{$time->availableseats <= 4 ? 'red' : 'blue' }};  " >
                                     <td><a style="color: black" href="{{route('attendees.show', $time->date)}}">{{$dias[date('w', strtotime($time->date))]}} {{date('d', strtotime($time->date))}}  </a></td>
                                     <td>{{date('h:i', strtotime($time->date))}}{{date('A', strtotime($time->date))}}</td>
                                     <td>{{$time->seats}}</td>
