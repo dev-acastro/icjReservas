@@ -19,6 +19,7 @@ class ReservasController extends Controller
     public function index()
     {
         //
+
         return redirect(\route('reservas.create'));
 
 
@@ -34,8 +35,11 @@ class ReservasController extends Controller
     {
         //
         $times = Times::all();
+        $date = new \DateTime();
+        $date->modify('-6 hours');
+        $dateFormatted= $date->format('Y-m-d H:i:s');
         $dias = array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
-        return view('reservas/create', ['times' => $times, 'dias' =>$dias]);
+        return view('reservas/create', ['times' => $times, 'dias' =>$dias, 'dateFormatted' => $dateFormatted]);
     }
 
     /**
