@@ -36,7 +36,7 @@ class ReservasController extends Controller
         //
         $times = Times::all();
         $date = new \DateTime();
-        $date->modify('-6 hours');
+        $date->modify('-5 hours');
         $dateFormatted= $date->format('Y-m-d H:i:s');
         $dias = array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
         return view('reservas/create', ['times' => $times, 'dias' =>$dias, 'dateFormatted' => $dateFormatted]);
