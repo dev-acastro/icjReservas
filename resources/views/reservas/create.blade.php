@@ -68,7 +68,9 @@
                             <div class="col-md-6">
                                 <select id="date" class="form-control" @error('date') is-invalid @enderror name="date" >
                                     @foreach($times as $time)
-                                        @if($time->availableseats > 4)
+
+                                        @if($time->availableseats > 4 &&  $time->date > date("Y-m-d h:i:s", time()));
+
                                         <option value="{{$time->id}}">{{$dias[date('w', strtotime($time->date))]}} {{date('d', strtotime($time->date))}} - {{date('h:i', strtotime($time->date))}} {{date('A', strtotime($time->date))}}</option>
                                         @endif
                                     @endforeach
@@ -111,4 +113,13 @@
         </div>
     </div>
 </div>
+
+@foreach($times as $time)
+
+    @if()
+
+        <ul><li>{{$time->date}}</li></ul>
+        @endif
+
+@endforeach
 @endsection
