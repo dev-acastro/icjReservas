@@ -26,8 +26,11 @@ class AttendeesController extends Controller
 
 
         $times = Times::all();
+        $date = new \DateTime();
+        $date->modify('-6 hours');
+        $dateFormatted= $date->format('Y-m-d H:i:s');
         $dias = array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
-        return view('admin.index', ['times'=>$times, 'dias'=>$dias]);
+        return view('admin.index', ['times'=>$times, 'dias'=>$dias, 'dateFormatted' => $dateFormatted]);
     }
 
     /**
