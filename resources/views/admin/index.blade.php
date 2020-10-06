@@ -50,7 +50,7 @@
 
                                 </tr>--}}
 
-                                    <div class="col-12" style="padding-left: 0; padding-right: 0; padding-bottom: 10px; margin-bottom: 10px; border-bottom: #d7d3d3 1px solid; background-image: url('https://i.ibb.co/3zBm92g/descarga.jpg'); background-repeat: repeat-y; background-size:{{((($time->seats - $time->availableseats)*100) / $time->seats)}}% ">
+                                    <div class="col-12" style="padding-left: 0; padding-right: 0; padding-bottom: 10px; margin-bottom: 0px; border-bottom: #d7d3d3 1px solid; background-image: url('https://i.ibb.co/3zBm92g/descarga.jpg'); background-repeat: repeat-y; background-size:{{((($time->seats - $time->availableseats)*100) / $time->seats)}}% ">
 
                                             <div class="col-sm-12 col-md-6" style="display: flex; padding: 0 5px;">
                                                 <div class="col-sm-6 " >
