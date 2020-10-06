@@ -53,10 +53,10 @@
                                     <div class="col-12" style="padding-left: 0; padding-right: 0; padding-bottom: 10px; margin-bottom: 0px; border-bottom: white 1px solid; background-image: url('https://i.ibb.co/3zBm92g/descarga.jpg'); background-repeat: repeat-y; background-size:{{((($time->seats - $time->availableseats)*100) / $time->seats)}}% ">
 
                                             <div class="col-sm-12 col-md-6" style="display: flex; padding: 0 5px;">
-                                                <div class="col-sm-8 " >
+                                                <div class="col-8 col-sm-8 " >
                                                     <a style="color: black" href="{{route('attendees.show', $time->date)}}"><p style="font-size: 14px">{{$dias[date('w', strtotime($time->date))]}} {{date('d', strtotime($time->date))}} {{date('h:i', strtotime($time->date))}}{{date('A', strtotime($time->date))}}</p></a>
                                                 </div>
-                                                <div class="col-sm-4" style="text-align: right" >
+                                                <div class="col-4 col-sm-4" style="text-align: right" >
                                                     <span style="font-size: 30px; color: grey">{{round(((($time->seats - $time->availableseats)*100) / $time->seats))}}%</span>
                                                 </div>
                                             </div>
