@@ -51,22 +51,22 @@
                                 </tr>--}}
 
                                     <div class="col-12" style="padding-bottom: 10px; margin-bottom: 10px; border-bottom: #d7d3d3 1px solid;">
-                                        <a style="color: black" href="{{route('attendees.show', $time->date)}}">
-                                            <div class="col-sm-8">
-                                                <div class="col-sm-6 ">
-                                                    <p style="font-size: 14px">{{$dias[date('w', strtotime($time->date))]}} {{date('d', strtotime($time->date))}} {{date('h:i', strtotime($time->date))}}{{date('A', strtotime($time->date))}}</p>
+
+                                            <div class="col-sm-12" style="display: flex">
+                                                <div class="col-sm-6 " >
+                                                    <a style="color: black" href="{{route('attendees.show', $time->date)}}"><p style="font-size: 14px">{{$dias[date('w', strtotime($time->date))]}} {{date('d', strtotime($time->date))}} {{date('h:i', strtotime($time->date))}}{{date('A', strtotime($time->date))}}</p></a>
                                                     <p><span><div style="width: 100%; height: 10px; background-color: #808080"><div style="background-color: blueviolet; width:{{((($time->seats - $time->availableseats)*$time->seats) / $time->availableseats)}}%; height: 10px;"></div></div></span></p>
                                                 </div>
-                                                <div class="col-sm-6">
-                                                    <p style="font-size: 30px; color: grey">{{round(((($time->seats - $time->availableseats)*100) / $time->availableseats))}}%</p>
+                                                <div class="col-sm-6" style="text-align: right" >
+                                                    <span style="font-size: 30px; color: grey">{{round(((($time->seats - $time->availableseats)*100) / $time->availableseats))}}%</span>
                                                 </div>
                                             </div>
-                                        </a>
-                                        <div class="col-sm-4">
 
-                                            <p style="font-size: 13px; margin-bottom: 0px;">Disponibles: {{$time->seats}}</p>
-                                            <p style="font-size: 13px; margin-bottom: 0px;">Reservados: {{$time->seats - $time->availableseats}}</p>
-                                            <p style="font-size: 13px; margin-bottom: 0px;">Libres: {{$time->availableseats}}</p>
+                                        <div class="col-sm-12">
+
+                                            <span style="font-size: 13px; margin-bottom: 0px; border-right: 1px solid #d7d3d3">Disponibles: {{$time->seats}}</span>
+                                            <span style="font-size: 13px; margin-bottom: 0px;">Reservados: {{$time->seats - $time->availableseats}}</span>
+                                            <span style="font-size: 13px; margin-bottom: 0px;">Libres: {{$time->availableseats}}</span>
                                         </div>
 
 
