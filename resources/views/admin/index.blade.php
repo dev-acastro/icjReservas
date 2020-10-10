@@ -48,16 +48,16 @@
 
                                 </tr>--}}
 
-                                    <div class="col-12" style="padding-left: 0; padding-right: 0; padding-bottom: 20px; margin-bottom: 0px; padding-top: 10px; line-height: 30px; border-bottom: #bfbbbb 1px solid; background-image: url('https://i.ibb.co/3zBm92g/descarga.jpg'); background-repeat: repeat-y; background-size:{{((($time->seats - $time->availableseats)*100) / $time->seats)}}% ">
+                                    <div class="col-12" style="padding-left: 0; padding-right: 0; /*padding-bottom: 20px;*/ margin-bottom: 0px; padding-top: 10px; border-bottom: #bfbbbb 1px solid; background-image: url('https://i.ibb.co/3zBm92g/descarga.jpg'); background-repeat: repeat-y; background-size:{{((($time->seats - $time->availableseats)*100) / $time->seats)}}% ">
                                             <div class="col-sm-12 col-md-6" style="display: flex; padding: 0 5px;">
                                                 <div class="col-8 col-sm-8" style="line-height: 48px">
                                                     <a style="color: black" href="{{route('attendees.show', $time->date)}}"><p style="font-size: 18px">{{$dias[date('w', strtotime($time->date))]}} {{date('d', strtotime($time->date))}} {{date('h:i', strtotime($time->date))}} {{date('A', strtotime($time->date))}}</p></a>
                                                 </div>
-                                                <div class="col-4 col-sm-4" style="text-align: center" >
+                                                <div class="col-4 col-sm-4" style="text-align: center; line-height: 48px" >
                                                     <span style="font-size: 30px; color: #3876ab">{{round(((($time->seats - $time->availableseats)*100) / $time->seats))}}%</span>
                                                 </div>
                                             </div>
-                                        <div class="col-sm-12 col-md-6" style="padding: 0 5px;">
+                                        <div class="col-sm-12 col-md-6" style="padding: 0 5px; line-height: 48px">
                                             <span style="font-size: 13px; margin-bottom: 0px; border-right: 1px solid #d7d3d3; padding-right: 5px;"><strong>Disponibles:</strong> {{$time->seats}}</span>
                                             <span style="font-size: 13px; margin-bottom: 0px; border-right: 1px solid #d7d3d3; padding-right: 5px; color: #3876ab"><strong>Reservados: </strong>{{$time->seats - $time->availableseats}}</span>
                                             <span style="font-size: 13px; margin-bottom: 0px; color: #ca1515 "><strong>Libres:</strong> {{$time->availableseats}}</span>
