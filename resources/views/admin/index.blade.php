@@ -59,8 +59,8 @@
                                             </div>
                                         <div class="col-sm-12 col-md-6" style="padding: 0 5px;">
                                             <span style="font-size: 13px; margin-bottom: 0px; border-right: 1px solid #d7d3d3; padding-right: 5px;"><strong>Disponibles:</strong> {{$time->seats}}</span>
-                                            <span style="font-size: 13px; margin-bottom: 0px; border-right: 1px solid #d7d3d3; padding-right: 5px;"><strong>Reservados: </strong>{{$time->seats - $time->availableseats}}</span>
-                                            <span style="font-size: 13px; margin-bottom: 0px; "><strong>Libres:</strong> {{$time->availableseats}}</span>
+                                            <span style="font-size: 13px; margin-bottom: 0px; border-right: 1px solid #d7d3d3; padding-right: 5px; color: #3876ab"><strong>Reservados: </strong>{{$time->seats - $time->availableseats}}</span>
+                                            <span style="font-size: 13px; margin-bottom: 0px; color: #ca1515 "><strong>Libres:</strong> {{$time->availableseats}}</span>
                                         </div>
                                     </div>
 
