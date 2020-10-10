@@ -48,7 +48,7 @@
 
                                 </tr>--}}
 
-                                    <div class="col-12" style="padding-left: 0; padding-right: 0; padding-bottom: 20px; margin-bottom: 0px; padding-top: 10px; line-height: 30px; border-bottom: #999797 1px solid; background-image: url('https://i.ibb.co/3zBm92g/descarga.jpg'); background-repeat: repeat-y; background-size:{{((($time->seats - $time->availableseats)*100) / $time->seats)}}% ">
+                                    <div class="col-12" style="padding-left: 0; padding-right: 0; padding-bottom: 20px; margin-bottom: 0px; padding-top: 10px; line-height: 30px; border-bottom: #bfbbbb 1px solid; background-image: url('https://i.ibb.co/3zBm92g/descarga.jpg'); background-repeat: repeat-y; background-size:{{((($time->seats - $time->availableseats)*100) / $time->seats)}}% ">
                                             <div class="col-sm-12 col-md-6" style="display: flex; padding: 0 5px;">
                                                 <div class="col-8 col-sm-8" style="line-height: 48px">
                                                     <a style="color: black" href="{{route('attendees.show', $time->date)}}"><p style="font-size: 18px">{{$dias[date('w', strtotime($time->date))]}} {{date('d', strtotime($time->date))}} {{date('h:i', strtotime($time->date))}} {{date('A', strtotime($time->date))}}</p></a>
